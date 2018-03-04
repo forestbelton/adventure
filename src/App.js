@@ -91,7 +91,7 @@ class UnstyledApp extends Component {
     }
 
     if (newPosition !== null) {
-      const cell = game.level.at(newPosition.x, newPosition.y)
+      const cell = game.level.cell(newPosition.x, newPosition.y)
 
       if (cell !== null && cell.char === '.') {
         this.setState({

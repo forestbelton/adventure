@@ -24,6 +24,20 @@ const neighbors = (options, x, y) => {
     return sides.filter(({ x, y }) => inRange(options, x, y))
 }
 
+const placeRandomly = (options, entity, map, cell) => {
+    let x = randomRange(0, options.width - 1)
+    let y = randomRange(0, options.height - 1)
+
+    while (typeof map[y] === 'undefined' || typeof map[y][x] === 'undefined' || map[y][x].char !== '.'
+            || (typeof entity[y] !== 'undefined' && typeof entity[y][x] !== 'undefined')) {
+        x = randomRange(0, options.width - 1)
+        y = randomRange(0, options.height - 1)
+    }
+
+    entity[y] = entity[y] || {}
+    entity[y][x] = cell
+}
+
 export const generateLevel = userOptions => {
     const options = {
         ...defaultOptions,
@@ -130,5 +144,17 @@ export const generateLevel = userOptions => {
         })
     }
 
-    return new Level(map, options)
+    const entity = {}
+
+    placeRandomly(options, entity, map, {
+        char: '<',
+        color: '#95a5a6'
+    })
+
+    placeRandomly(options, entity, map, {
+        char: '>',
+        color: '#95a5a6'
+    })
+
+    return new Level(map, entity, options)
 }

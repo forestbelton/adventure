@@ -1,17 +1,29 @@
 class Level {
-    constructor(map, options) {
+    constructor(map, entity, options) {
         this.map = map
-        this.entity = {}
+        this.entity = entity || {}
         this.options = options || {}
+    }
+
+    cell(x, y) {
+        return typeof this.map[y] === 'undefined' || typeof this.map[y][x] === 'undefined'
+            ? null
+            : this.map[y][x]
     }
 
     at(x, y) {
         if (typeof this.map[y] === 'undefined' || typeof this.map[y][x] === 'undefined') {
             return null
         } else if (typeof this.entity[y] !== 'undefined' && typeof this.entity[y][x] !== 'undefined') {
-            return this.entity[y][x]
+            return {
+                type: 'entity',
+                ...this.entity[y][x]
+            }
         } else {
-            return this.map[y][x]
+            return {
+                type: 'cell',
+                ...this.map[y][x]
+            }
         }
     }
 

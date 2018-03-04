@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const UnstyledHeroStats = ({ className, hero }) => (
     <div className={className}>
-        <div>Name: {hero.name}</div>
+        <div>Name:&nbsp;&nbsp;{hero.name}</div>
         <div>Class: {hero.job}</div>
         <br />
         <div>HP: {hero.health.current} / {hero.health.maximum}</div>
