@@ -1,5 +1,6 @@
 import { generateLevel } from './util/generateLevel'
 import { randomRange } from './util/randomRange'
+import { randomHero } from './util/randomHero';
 
 const findSpawnPoint = level => {
     let point = null
@@ -20,7 +21,8 @@ const findSpawnPoint = level => {
     return point
 }
 
-export const newGame = hero => {
+export const newGame = () => {
+    const hero = randomHero()
     const level = generateLevel({ width: 50, height: 50 })
     const position = findSpawnPoint(level)
 
