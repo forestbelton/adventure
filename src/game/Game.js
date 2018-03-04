@@ -1,6 +1,6 @@
 import { generateLevel } from './util/generateLevel'
 import { randomRange } from './util/randomRange'
-import { randomHero } from './util/randomHero';
+import { randomHero } from './util/randomHero'
 
 const findSpawnPoint = level => {
     let point = null

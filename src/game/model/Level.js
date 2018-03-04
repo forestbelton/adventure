@@ -2,7 +2,7 @@ class Level {
     constructor(map, options) {
         this.map = map
         this.entity = {}
-        this.options = options
+        this.options = options || {}
     }
 
     at(x, y) {
