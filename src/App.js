@@ -11,31 +11,6 @@ const MainPanel = styled.div`
   display: flex;
 `
 
-const hero = {
-  name: 'Henry',
-  job: 'Knight',
-
-  health: {
-    current: 11,
-    maximum: 11
-  },
-
-  mana: {
-    current: 1,
-    maximum: 1
-  },
-
-  stats: {
-    strength: 4,
-    intelligence: 1,
-    vitality: 3,
-    luck: 1,
-    dexterity: 2
-  },
-
-  inventory: ['rusty sword', 'small health potion']
-}
-
 const screenWidth = 20
 const screenHeight = 10
 
@@ -45,7 +20,7 @@ class UnstyledApp extends Component {
 
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.state = {
-      game: newGame(hero)
+      game: newGame()
     }
   }
 
