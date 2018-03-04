@@ -26,6 +26,7 @@ export const newGame = () => {
     const level = generateLevel({ width: 50, height: 50 })
     const position = findSpawnPoint(level)
 
+    console.log(`Spawned at (${position.x}, ${position.y})`)
     return new Game({
         hero,
         log: ['Welcome to adventure!'],
